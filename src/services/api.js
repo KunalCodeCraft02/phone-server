@@ -29,14 +29,18 @@ api.interceptors.response.use(
       try {
         const refreshToken = localStorage.getItem('refreshToken');
         if (refreshToken) {
-          const { data } = await axios.post(`${API_BASE_URL}/auth/refresh`, {
+          const { data: refreshRes } = await axios.post(`${API_BASE_URL}/auth/refresh`, {
             refreshToken,
           });
-          localStorage.setItem('token', data.token);
-          if (data.refreshToken) {
-            localStorage.setItem('refreshToken', data.refreshToken);
+          const payload = refreshRes?.data || refreshRes;
+          const newToken = payload.accessToken || payload.token;
+          const newRefresh = payload.refreshToken;
+
+          localStorage.setItem('token', newToken);
+          if (newRefresh) {
+            localStorage.setItem('refreshToken', newRefresh);
           }
-          originalRequest.headers.Authorization = `Bearer ${data.token}`;
+          originalRequest.headers.Authorization = `Bearer ${newToken}`;
           return api(originalRequest);
         }
       } catch (refreshError) {

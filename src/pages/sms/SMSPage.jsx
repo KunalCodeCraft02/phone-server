@@ -23,14 +23,15 @@ export default function SMSPage() {
   const [page, setPage] = useState(1);
   const [showSend, setShowSend] = useState(false);
 
-  const { data, isLoading } = useSMSList({ type: tab, search, page, limit: 20 });
+  const directionFilter = tab === 'inbox' ? 'received' : tab === 'sent' ? 'sent' : undefined;
+  const { data, isLoading } = useSMSList({ direction: directionFilter, search, page, limit: 20 });
   const deleteMutation = useDeleteSMS();
 
   useSocket('sms:new', () => {});
 
-  const messages = data?.messages || data?.data || [];
-  const total = data?.total || messages.length;
-  const totalPages = data?.totalPages || 1;
+  const messages = data?.data || data?.messages || [];
+  const total = data?.pagination?.total || messages.length;
+  const totalPages = data?.pagination?.pages || 1;
 
   return (
     <motion.div

@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Send, X } from 'lucide-react';
 import { useSendSMS } from '../../hooks/useSMS';
+import { useAuth } from '../../context/AuthContext';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
 import Modal from '../../components/ui/Modal';
@@ -15,12 +16,17 @@ const schema = z.object({
 
 export default function SMSSend({ isOpen, onClose }) {
   const sendMutation = useSendSMS();
+  const { user } = useAuth();
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data) => {
-    await sendMutation.mutateAsync(data);
+    await sendMutation.mutateAsync({
+      sender: user?.email || user?.phone || 'web',
+      receiver: data.receiver,
+      message: data.message,
+    });
     reset();
     onClose();
   };

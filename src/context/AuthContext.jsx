@@ -13,8 +13,9 @@ export function AuthProvider({ children }) {
 
   const fetchProfile = useCallback(async () => {
     try {
-      const { data } = await authAPI.getProfile();
-      setUser(data.user || data);
+      const res = await authAPI.getProfile();
+      const profileData = res.data?.data || res.data?.user || res.data;
+      setUser(profileData);
     } catch {
       setUser(null);
       setToken(null);
@@ -33,27 +34,37 @@ export function AuthProvider({ children }) {
   }, [token, fetchProfile]);
 
   const login = async (email, password) => {
-    const { data } = await authAPI.login(email, password);
-    localStorage.setItem('token', data.token);
-    if (data.refreshToken) {
-      localStorage.setItem('refreshToken', data.refreshToken);
+    const res = await authAPI.login(email, password);
+    const payload = res.data?.data || res.data;
+    const accessToken = payload.accessToken || payload.token;
+    const refreshToken = payload.refreshToken;
+    const userData = payload.user;
+
+    localStorage.setItem('token', accessToken);
+    if (refreshToken) {
+      localStorage.setItem('refreshToken', refreshToken);
     }
-    setToken(data.token);
-    setUser(data.user);
-    connectSocket(data.token);
-    return data;
+    setToken(accessToken);
+    setUser(userData);
+    connectSocket(accessToken);
+    return payload;
   };
 
   const register = async (name, email, password) => {
-    const { data } = await authAPI.register(name, email, password);
-    localStorage.setItem('token', data.token);
-    if (data.refreshToken) {
-      localStorage.setItem('refreshToken', data.refreshToken);
+    const res = await authAPI.register(name, email, password);
+    const payload = res.data?.data || res.data;
+    const accessToken = payload.accessToken || payload.token;
+    const refreshToken = payload.refreshToken;
+    const userData = payload.user;
+
+    localStorage.setItem('token', accessToken);
+    if (refreshToken) {
+      localStorage.setItem('refreshToken', refreshToken);
     }
-    setToken(data.token);
-    setUser(data.user);
-    connectSocket(data.token);
-    return data;
+    setToken(accessToken);
+    setUser(userData);
+    connectSocket(accessToken);
+    return payload;
   };
 
   const logout = async () => {
@@ -70,7 +81,8 @@ export function AuthProvider({ children }) {
   };
 
   const updateProfile = async (data) => {
-    const { data: updated } = await authAPI.updateProfile(data);
+    const res = await authAPI.updateProfile(data);
+    const updated = res.data?.data || res.data;
     setUser(updated.user || updated);
     return updated;
   };
