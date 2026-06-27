@@ -1,4 +1,4 @@
-# Personal Device Cloud
+# Personal Server
 
 A full-stack MERN + Capacitor application that transforms your Android phone into a personal cloud server and automation hub.
 

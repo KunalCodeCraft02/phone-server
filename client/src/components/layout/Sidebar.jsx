@@ -22,7 +22,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600">
           <CloudSun className="h-6 w-6 text-white" />
         </div>
-        <span className="text-lg font-bold text-white">DeviceCloud</span>
+        <span className="text-lg font-bold text-white">Personal Server</span>
       </div>
 
       <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
@@ -51,7 +51,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
       <div className="px-3 py-4 border-t border-white/10">
         <div className="text-xs text-slate-500 text-center">
-          Personal Device Cloud
+          Personal Server
         </div>
       </div>
     </nav>

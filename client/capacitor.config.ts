@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.personaldevicecloud.app',
-  appName: 'Personal Device Cloud',
+  appName: 'Personal Server',
   webDir: 'dist',
   server: {
     androidScheme: 'https',

@@ -11,8 +11,8 @@ export default function AuthLayout() {
               <CloudSun className="h-8 w-8 text-white" />
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-white">DeviceCloud</h1>
-          <p className="text-slate-400 text-sm mt-1">Personal Device Cloud</p>
+          <h1 className="text-2xl font-bold text-white">Personal Server</h1>
+          <p className="text-slate-400 text-sm mt-1">Your private cloud hub</p>
         </div>
 
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl">
