@@ -36,7 +36,7 @@ export default function SMSSend({ isOpen, onClose }) {
         />
 
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Message
           </label>
           <textarea
@@ -46,7 +46,7 @@ export default function SMSSend({ isOpen, onClose }) {
             className="glass-input w-full resize-none"
           />
           {errors.message && (
-            <p className="mt-1.5 text-sm text-red-400">{errors.message.message}</p>
+            <p className="mt-1.5 text-sm text-red-600">{errors.message.message}</p>
           )}
         </div>
 

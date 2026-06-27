@@ -36,9 +36,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-xl hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+        className="p-2 rounded-xl hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
       >
-        <ChevronLeft className="h-4 w-4" />
+        <ChevronLeft className="h-4 w-4 text-slate-600" />
       </button>
 
       {getPageNumbers().map((page, i) =>
@@ -54,7 +54,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
               'px-3 py-1.5 rounded-xl text-sm font-medium transition-all',
               currentPage === page
                 ? 'bg-blue-600 text-white'
-                : 'hover:bg-white/10 text-slate-300'
+                : 'hover:bg-slate-100 text-slate-600'
             )}
           >
             {page}
@@ -65,9 +65,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-xl hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+        className="p-2 rounded-xl hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
       >
-        <ChevronRight className="h-4 w-4" />
+        <ChevronRight className="h-4 w-4 text-slate-600" />
       </button>
     </div>
   );

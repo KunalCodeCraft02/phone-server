@@ -42,7 +42,7 @@ export default function PhotoUpload({ onClose }) {
 
   return (
     <div className="space-y-4">
-      <div className="border-2 border-dashed border-white/20 rounded-2xl p-8 text-center hover:border-white/40 transition-colors">
+      <div className="border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center hover:border-blue-400 hover:bg-blue-50/50 transition-colors">
         <input
           type="file"
           multiple
@@ -53,8 +53,8 @@ export default function PhotoUpload({ onClose }) {
         />
         <label htmlFor="photo-upload" className="cursor-pointer">
           <Camera className="h-12 w-12 text-slate-400 mx-auto mb-3" />
-          <p className="text-sm font-medium text-white">Select photos</p>
-          <p className="text-xs text-slate-400 mt-1">or drag and drop</p>
+          <p className="text-sm font-medium text-slate-700">Select photos</p>
+          <p className="text-xs text-slate-500 mt-1">or drag and drop</p>
         </label>
       </div>
 
@@ -76,7 +76,7 @@ export default function PhotoUpload({ onClose }) {
                   />
                   <button
                     onClick={() => removeFile(index)}
-                    className="absolute top-1 right-1 p-1 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-1 right-1 p-1 bg-slate-900/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     <X className="h-3 w-3 text-white" />
                   </button>
@@ -86,14 +86,14 @@ export default function PhotoUpload({ onClose }) {
 
             {uploading && (
               <div className="space-y-2">
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     className="h-full bg-blue-500 rounded-full"
                   />
                 </div>
-                <p className="text-xs text-slate-400 text-center">{progress}% uploaded</p>
+                <p className="text-xs text-slate-500 text-center">{progress}% uploaded</p>
               </div>
             )}
 

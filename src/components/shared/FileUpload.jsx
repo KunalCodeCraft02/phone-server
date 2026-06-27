@@ -23,23 +23,23 @@ export default function FileUpload({ onDrop, accept, multiple = true, className 
       className={classNames(
         'border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all duration-300',
         isDragActive
-          ? 'border-blue-500 bg-blue-500/10'
-          : 'border-white/20 hover:border-white/40 hover:bg-white/5',
+          ? 'border-blue-500 bg-blue-50'
+          : 'border-slate-300 hover:border-blue-400 hover:bg-blue-50/50',
         className
       )}
     >
       <input {...getInputProps()} />
       <div className="flex flex-col items-center gap-3">
         {isDragActive ? (
-          <FileUp className="h-10 w-10 text-blue-400" />
+          <FileUp className="h-10 w-10 text-blue-500" />
         ) : (
           <Upload className="h-10 w-10 text-slate-400" />
         )}
         <div>
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-slate-700">
             {isDragActive ? 'Drop files here' : 'Drag & drop files here'}
           </p>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             or click to select files
           </p>
         </div>

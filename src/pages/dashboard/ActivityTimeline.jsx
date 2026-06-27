@@ -19,23 +19,23 @@ const iconMap = {
 };
 
 const colorMap = {
-  photo: 'text-purple-400 bg-purple-500/20',
-  sms: 'text-blue-400 bg-blue-500/20',
-  upload: 'text-green-400 bg-green-500/20',
-  download: 'text-cyan-400 bg-cyan-500/20',
-  delete: 'text-red-400 bg-red-500/20',
-  device: 'text-orange-400 bg-orange-500/20',
-  location: 'text-rose-400 bg-rose-500/20',
-  clipboard: 'text-amber-400 bg-amber-500/20',
-  file: 'text-indigo-400 bg-indigo-500/20',
-  barcode: 'text-teal-400 bg-teal-500/20',
+  photo: 'text-purple-600 bg-purple-50',
+  sms: 'text-blue-600 bg-blue-50',
+  upload: 'text-green-600 bg-green-50',
+  download: 'text-cyan-600 bg-cyan-50',
+  delete: 'text-red-600 bg-red-50',
+  device: 'text-orange-600 bg-orange-50',
+  location: 'text-rose-600 bg-rose-50',
+  clipboard: 'text-amber-600 bg-amber-50',
+  file: 'text-indigo-600 bg-indigo-50',
+  barcode: 'text-teal-600 bg-teal-50',
 };
 
 export default function ActivityTimeline({ activities = [] }) {
   if (activities.length === 0) {
     return (
       <div className="text-center py-8">
-        <p className="text-slate-400 text-sm">No recent activity</p>
+        <p className="text-slate-500 text-sm">No recent activity</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ export default function ActivityTimeline({ activities = [] }) {
     <div className="space-y-1">
       {activities.map((activity, index) => {
         const Icon = iconMap[activity.type] || FileText;
-        const colors = colorMap[activity.type] || 'text-slate-400 bg-slate-500/20';
+        const colors = colorMap[activity.type] || 'text-slate-500 bg-slate-100';
 
         return (
           <motion.div
@@ -52,16 +52,16 @@ export default function ActivityTimeline({ activities = [] }) {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
+            className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors"
           >
             <div className={`p-2 rounded-lg ${colors}`}>
               <Icon className="h-4 w-4" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm text-white truncate">{activity.description}</p>
-              <p className="text-xs text-slate-400">{activity.details}</p>
+              <p className="text-sm text-slate-800 truncate">{activity.description}</p>
+              <p className="text-xs text-slate-500">{activity.details}</p>
             </div>
-            <span className="text-xs text-slate-500 whitespace-nowrap">
+            <span className="text-xs text-slate-400 whitespace-nowrap">
               {timeAgo(activity.createdAt)}
             </span>
           </motion.div>

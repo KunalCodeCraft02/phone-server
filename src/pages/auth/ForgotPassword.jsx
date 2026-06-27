@@ -37,16 +37,16 @@ export default function ForgotPassword() {
   if (sent) {
     return (
       <div className="text-center">
-        <div className="p-4 rounded-2xl bg-emerald-500/10 inline-flex mb-4">
-          <Mail className="h-8 w-8 text-emerald-400" />
+        <div className="p-4 rounded-2xl bg-emerald-50 inline-flex mb-4">
+          <Mail className="h-8 w-8 text-emerald-500" />
         </div>
-        <h2 className="text-2xl font-bold text-white mb-2">Check your email</h2>
-        <p className="text-slate-400 text-sm mb-6">
+        <h2 className="text-2xl font-bold text-slate-800 mb-2">Check your email</h2>
+        <p className="text-slate-500 text-sm mb-6">
           We've sent a password reset link to your email address.
         </p>
         <Link
           to="/login"
-          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+          className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to sign in
@@ -57,8 +57,8 @@ export default function ForgotPassword() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-2">Forgot password?</h2>
-      <p className="text-slate-400 text-sm mb-6">
+      <h2 className="text-2xl font-bold text-slate-800 mb-2">Forgot password?</h2>
+      <p className="text-slate-500 text-sm mb-6">
         Enter your email and we'll send you a reset link
       </p>
 
@@ -80,7 +80,7 @@ export default function ForgotPassword() {
       <div className="text-center mt-6">
         <Link
           to="/login"
-          className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to sign in

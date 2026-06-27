@@ -5,7 +5,7 @@ const Input = forwardRef(({ label, error, icon: Icon, className = '', ...props }
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-slate-300 mb-2">
+        <label className="block text-sm font-medium text-slate-600 mb-2">
           {label}
         </label>
       )}
@@ -27,7 +27,7 @@ const Input = forwardRef(({ label, error, icon: Icon, className = '', ...props }
         />
       </div>
       {error && (
-        <p className="mt-1.5 text-sm text-red-400">{error}</p>
+        <p className="mt-1.5 text-sm text-red-600">{error}</p>
       )}
     </div>
   );

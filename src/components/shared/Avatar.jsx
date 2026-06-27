@@ -14,7 +14,7 @@ export default function Avatar({ src, name, size = 'md', className = '' }) {
         src={src}
         alt={name || 'Avatar'}
         className={classNames(
-          'rounded-full object-cover border-2 border-white/20',
+          'rounded-full object-cover border-2 border-white/60',
           sizes[size],
           className
         )}
@@ -25,7 +25,7 @@ export default function Avatar({ src, name, size = 'md', className = '' }) {
   return (
     <div
       className={classNames(
-        'rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-semibold text-white border-2 border-white/20',
+        'rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-semibold text-white border-2 border-white/60',
         sizes[size],
         className
       )}

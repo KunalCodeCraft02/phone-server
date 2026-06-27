@@ -2,25 +2,25 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen;
+    @apply bg-gradient-to-br from-blue-50 via-purple-50/30 to-pink-50 text-slate-800 min-h-screen;
   }
 
   * {
-    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20;
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-300;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+    @apply bg-white/60 backdrop-blur-xl border border-white/50 shadow-lg shadow-slate-200/30;
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl;
+    @apply bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40;
   }
 
   .glass-input {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all;
+    @apply bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all;
   }
 
   .gradient-primary {

@@ -45,18 +45,18 @@ export default function BarcodeScannerPage() {
       className="space-y-6"
     >
       <div>
-        <h2 className="text-2xl font-bold text-white">Barcode Scanner</h2>
-        <p className="text-slate-400 text-sm">Scan and save barcodes</p>
+        <h2 className="text-2xl font-bold text-slate-800">Barcode Scanner</h2>
+        <p className="text-slate-500 text-sm">Scan and save barcodes</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Scanner</h3>
+        <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">Scanner</h3>
 
-          <div className="aspect-square max-w-sm mx-auto bg-slate-800/50 rounded-2xl border-2 border-dashed border-white/20 flex flex-col items-center justify-center mb-6">
-            <Camera className="h-16 w-16 text-slate-500 mb-4" />
-            <p className="text-sm text-slate-400">Camera preview area</p>
-            <p className="text-xs text-slate-500 mt-1">Point camera at barcode</p>
+          <div className="aspect-square max-w-sm mx-auto bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center mb-6">
+            <Camera className="h-16 w-16 text-slate-400 mb-4" />
+            <p className="text-sm text-slate-500">Camera preview area</p>
+            <p className="text-xs text-slate-400 mt-1">Point camera at barcode</p>
           </div>
 
           <div className="flex gap-2 mb-4">
@@ -70,15 +70,15 @@ export default function BarcodeScannerPage() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white/5 rounded-xl p-4"
+              className="bg-slate-50 rounded-xl p-4"
             >
               <div className="flex items-center gap-2 mb-2">
-                <p className="text-xs text-slate-400">Scan Result:</p>
+                <p className="text-xs text-slate-500">Scan Result:</p>
                 {format && (
-                  <span className="px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded text-xs">{format}</span>
+                  <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-xs">{format}</span>
                 )}
               </div>
-              <p className="text-sm text-white font-mono mb-3">{result}</p>
+              <p className="text-sm text-slate-800 font-mono mb-3">{result}</p>
               <div className="flex gap-2">
                 <Button size="sm" onClick={handleSave} loading={saveMutation.isPending}>
                   <Save className="h-3 w-3" /> Save
@@ -92,7 +92,7 @@ export default function BarcodeScannerPage() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Scan History</h3>
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">Scan History</h3>
           <div className="max-w-md mb-4">
             <SearchBar onSearch={setSearch} placeholder="Search barcodes..." />
           </div>

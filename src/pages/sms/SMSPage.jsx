@@ -40,8 +40,8 @@ export default function SMSPage() {
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white">SMS</h2>
-          <p className="text-slate-400 text-sm">{total} messages</p>
+          <h2 className="text-2xl font-bold text-slate-800">SMS</h2>
+          <p className="text-slate-500 text-sm">{total} messages</p>
         </div>
         <Button onClick={() => setShowSend(true)}>
           <Plus className="h-4 w-4" />
@@ -49,7 +49,7 @@ export default function SMSPage() {
         </Button>
       </div>
 
-      <div className="flex items-center gap-1 bg-white/5 rounded-xl p-1 w-fit">
+      <div className="flex items-center gap-1 bg-white/50 rounded-xl p-1 w-fit border border-white/50">
         {tabs.map((t) => {
           const Icon = t.icon;
           return (
@@ -58,8 +58,8 @@ export default function SMSPage() {
               onClick={() => { setTab(t.id); setPage(1); }}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 tab === t.id
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-400 hover:text-white hover:bg-white/10'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
+                  : 'text-slate-500 hover:text-slate-800 hover:bg-white/50'
               }`}
             >
               <Icon className="h-4 w-4" />
@@ -76,12 +76,12 @@ export default function SMSPage() {
       {isLoading ? (
         <div className="space-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="bg-white/5 rounded-xl p-4 animate-pulse">
+            <div key={i} className="bg-white/50 rounded-xl p-4 animate-pulse">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-white/10 rounded-full" />
+                <div className="h-10 w-10 bg-slate-200 rounded-full" />
                 <div className="flex-1 space-y-2">
-                  <div className="h-3 bg-white/10 rounded w-1/4" />
-                  <div className="h-4 bg-white/10 rounded w-3/4" />
+                  <div className="h-3 bg-slate-200 rounded w-1/4" />
+                  <div className="h-4 bg-slate-200 rounded w-3/4" />
                 </div>
               </div>
             </div>
@@ -101,22 +101,22 @@ export default function SMSPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.03 }}
-              className="bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors group"
+              className="bg-white/50 hover:bg-white/70 rounded-xl p-4 transition-colors group border border-white/50"
             >
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-blue-500/20">
-                  <MessageSquare className="h-4 w-4 text-blue-400" />
+                <div className="p-2 rounded-lg bg-blue-50">
+                  <MessageSquare className="h-4 w-4 text-blue-600" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm font-medium text-white">
+                    <p className="text-sm font-medium text-slate-800">
                       {msg.type === 'sent' ? `To: ${msg.receiver}` : `From: ${msg.sender}`}
                     </p>
-                    <span className="text-xs text-slate-500 whitespace-nowrap">
+                    <span className="text-xs text-slate-400 whitespace-nowrap">
                       {timeAgo(msg.createdAt)}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-300 mt-1">{truncate(msg.body || msg.message, 100)}</p>
+                  <p className="text-sm text-slate-600 mt-1">{truncate(msg.body || msg.message, 100)}</p>
                   {msg.status && (
                     <Badge
                       variant={msg.status === 'sent' ? 'success' : msg.status === 'failed' ? 'danger' : 'info'}
@@ -132,9 +132,9 @@ export default function SMSPage() {
                       deleteMutation.mutate(msg._id);
                     }
                   }}
-                  className="p-1.5 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-red-500/20 transition-all"
+                  className="p-1.5 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-red-50 transition-all"
                 >
-                  <Trash2 className="h-4 w-4 text-red-400" />
+                  <Trash2 className="h-4 w-4 text-red-500" />
                 </button>
               </div>
             </motion.div>

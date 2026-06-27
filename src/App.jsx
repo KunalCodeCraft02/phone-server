@@ -34,7 +34,7 @@ function ProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50/30 to-pink-50 flex items-center justify-center">
         <div className="animate-spin h-8 w-8 border-2 border-blue-500 border-t-transparent rounded-full" />
       </div>
     );
@@ -52,7 +52,7 @@ function PublicRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50/30 to-pink-50 flex items-center justify-center">
         <div className="animate-spin h-8 w-8 border-2 border-blue-500 border-t-transparent rounded-full" />
       </div>
     );
@@ -104,11 +104,12 @@ export default function App() {
           toastOptions={{
             duration: 3000,
             style: {
-              background: 'rgba(30, 41, 59, 0.95)',
-              color: '#fff',
+              background: 'rgba(255, 255, 255, 0.9)',
+              color: '#1e293b',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(226, 232, 240, 0.8)',
               borderRadius: '12px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
             },
             success: {
               iconTheme: { primary: '#10b981', secondary: '#fff' },

@@ -25,9 +25,9 @@ export default function QRHistory({ search }) {
     return (
       <div className="space-y-3">
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="bg-white/5 rounded-xl p-4 animate-pulse">
-            <div className="h-4 bg-white/10 rounded w-3/4 mb-2" />
-            <div className="h-3 bg-white/10 rounded w-1/2" />
+          <div key={i} className="bg-white/50 rounded-xl p-4 animate-pulse">
+            <div className="h-4 bg-slate-200 rounded w-3/4 mb-2" />
+            <div className="h-3 bg-slate-200 rounded w-1/2" />
           </div>
         ))}
       </div>
@@ -48,27 +48,27 @@ export default function QRHistory({ search }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.03 }}
-          className="bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors group"
+          className="bg-white/50 hover:bg-white/70 rounded-xl p-4 transition-colors group border border-white/50"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <p className="text-sm text-white break-all">{truncate(item.content || item.data, 150)}</p>
-              <p className="text-xs text-slate-500 mt-1">{timeAgo(item.createdAt)}</p>
+              <p className="text-sm text-slate-800 break-all">{truncate(item.content || item.data, 150)}</p>
+              <p className="text-xs text-slate-400 mt-1">{timeAgo(item.createdAt)}</p>
             </div>
             <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
               <button
                 onClick={() => copyToClipboard(item.content || item.data)}
-                className="p-2 rounded-lg hover:bg-blue-500/20 transition-colors"
+                className="p-2 rounded-lg hover:bg-blue-50 transition-colors"
               >
-                <Copy className="h-4 w-4 text-blue-400" />
+                <Copy className="h-4 w-4 text-blue-500" />
               </button>
               <button
                 onClick={() => {
                   if (confirm('Delete?')) deleteMutation.mutate(item._id);
                 }}
-                className="p-2 rounded-lg hover:bg-red-500/20 transition-colors"
+                className="p-2 rounded-lg hover:bg-red-50 transition-colors"
               >
-                <Trash2 className="h-4 w-4 text-red-400" />
+                <Trash2 className="h-4 w-4 text-red-500" />
               </button>
             </div>
           </div>

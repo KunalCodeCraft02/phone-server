@@ -28,7 +28,7 @@ const passwordSchema = z.object({
 
 export default function SettingsPage() {
   const { user, updateProfile } = useAuth();
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [profileLoading, setProfileLoading] = useState(false);
   const [passwordLoading, setPasswordLoading] = useState(false);
 
@@ -77,15 +77,15 @@ export default function SettingsPage() {
       className="space-y-6 max-w-2xl"
     >
       <div>
-        <h2 className="text-2xl font-bold text-white">Settings</h2>
-        <p className="text-slate-400 text-sm">Manage your account preferences</p>
+        <h2 className="text-2xl font-bold text-slate-800">Settings</h2>
+        <p className="text-slate-500 text-sm">Manage your account preferences</p>
       </div>
 
       {/* Profile Section */}
       <Card>
         <div className="flex items-center gap-2 mb-6">
-          <User className="h-5 w-5 text-blue-400" />
-          <h3 className="text-lg font-semibold text-white">Profile</h3>
+          <User className="h-5 w-5 text-blue-500" />
+          <h3 className="text-lg font-semibold text-slate-800">Profile</h3>
         </div>
 
         <form onSubmit={profileForm.handleSubmit(onProfileSubmit)} className="space-y-4">
@@ -118,8 +118,8 @@ export default function SettingsPage() {
       {/* Password Section */}
       <Card>
         <div className="flex items-center gap-2 mb-6">
-          <Lock className="h-5 w-5 text-amber-400" />
-          <h3 className="text-lg font-semibold text-white">Change Password</h3>
+          <Lock className="h-5 w-5 text-amber-500" />
+          <h3 className="text-lg font-semibold text-slate-800">Change Password</h3>
         </div>
 
         <form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)} className="space-y-4">
@@ -153,21 +153,21 @@ export default function SettingsPage() {
       {/* Appearance Section */}
       <Card>
         <div className="flex items-center gap-2 mb-6">
-          {darkMode ? <Moon className="h-5 w-5 text-indigo-400" /> : <Sun className="h-5 w-5 text-amber-400" />}
-          <h3 className="text-lg font-semibold text-white">Appearance</h3>
+          {darkMode ? <Moon className="h-5 w-5 text-indigo-500" /> : <Sun className="h-5 w-5 text-amber-500" />}
+          <h3 className="text-lg font-semibold text-slate-800">Appearance</h3>
         </div>
 
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-white">Dark Mode</p>
-            <p className="text-xs text-slate-400">Toggle between dark and light theme</p>
+            <p className="text-sm text-slate-800">Dark Mode</p>
+            <p className="text-xs text-slate-500">Toggle between dark and light theme</p>
           </div>
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`relative w-12 h-6 rounded-full transition-colors ${darkMode ? 'bg-blue-600' : 'bg-slate-600'}`}
+            className={`relative w-12 h-6 rounded-full transition-colors ${darkMode ? 'bg-blue-600' : 'bg-slate-300'}`}
           >
             <div
-              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${darkMode ? 'translate-x-6' : ''}`}
+              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform shadow-sm ${darkMode ? 'translate-x-6' : ''}`}
             />
           </button>
         </div>

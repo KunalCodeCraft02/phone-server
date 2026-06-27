@@ -41,8 +41,8 @@ export default function Gallery() {
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white">Photos</h2>
-          <p className="text-slate-400 text-sm">{total} photos total</p>
+          <h2 className="text-2xl font-bold text-slate-800">Photos</h2>
+          <p className="text-slate-500 text-sm">{total} photos total</p>
         </div>
         <Button onClick={() => setShowUpload(true)}>
           <Plus className="h-4 w-4" />
@@ -57,7 +57,7 @@ export default function Gallery() {
       {isLoading ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="aspect-square bg-white/5 rounded-2xl animate-pulse" />
+            <div key={i} className="aspect-square bg-white/50 rounded-2xl animate-pulse" />
           ))}
         </div>
       ) : photos.length === 0 ? (
@@ -80,7 +80,7 @@ export default function Gallery() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.03 }}
-              className="group relative aspect-square rounded-2xl overflow-hidden bg-white/5 cursor-pointer"
+              className="group relative aspect-square rounded-2xl overflow-hidden bg-white/50 cursor-pointer border border-white/50 shadow-lg shadow-slate-200/30"
               onClick={() => setSelectedPhoto(photo)}
             >
               <img
@@ -89,7 +89,7 @@ export default function Gallery() {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-xs text-white truncate">{photo.filename}</p>
               </div>

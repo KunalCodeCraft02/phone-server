@@ -28,8 +28,8 @@ export default function DevicesPage() {
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white">Devices</h2>
-          <p className="text-slate-400 text-sm">{devices.length} registered device{devices.length !== 1 ? 's' : ''}</p>
+          <h2 className="text-2xl font-bold text-slate-800">Devices</h2>
+          <p className="text-slate-500 text-sm">{devices.length} registered device{devices.length !== 1 ? 's' : ''}</p>
         </div>
         <Button variant="secondary" onClick={() => refetch()}>
           <RefreshCw className="h-4 w-4" />
@@ -57,20 +57,20 @@ export default function DevicesPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all"
+              className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 hover:bg-white/70 transition-all shadow-lg shadow-slate-200/40"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/25">
                     <Smartphone className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">{device.name || 'Unknown Device'}</h3>
-                    <p className="text-xs text-slate-400">{device.model || 'Android Device'}</p>
+                    <h3 className="font-semibold text-slate-800">{device.name || 'Unknown Device'}</h3>
+                    <p className="text-xs text-slate-500">{device.model || 'Android Device'}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className={`h-2.5 w-2.5 rounded-full ${device.isOnline ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+                  <div className={`h-2.5 w-2.5 rounded-full ${device.isOnline ? 'bg-emerald-500' : 'bg-slate-400'}`} />
                   <Badge variant={device.isOnline ? 'success' : 'neutral'}>
                     {device.isOnline ? 'Online' : 'Offline'}
                   </Badge>
@@ -81,13 +81,13 @@ export default function DevicesPage() {
                 {/* Battery */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
                       <Battery className="h-3.5 w-3.5" />
                       Battery
                     </div>
-                    <span className="text-xs text-white">{device.battery ?? 'N/A'}%</span>
+                    <span className="text-xs text-slate-700">{device.battery ?? 'N/A'}%</span>
                   </div>
-                  <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-200/60 rounded-full overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all ${
                         (device.battery ?? 0) > 50
@@ -104,13 +104,13 @@ export default function DevicesPage() {
                 {/* Storage */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
                       <HardDrive className="h-3.5 w-3.5" />
                       Storage
                     </div>
-                    <span className="text-xs text-white">{device.storageUsed || 'N/A'}</span>
+                    <span className="text-xs text-slate-700">{device.storageUsed || 'N/A'}</span>
                   </div>
-                  <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-200/60 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
                       style={{ width: `${device.storagePercent ?? 0}%` }}
@@ -120,25 +120,25 @@ export default function DevicesPage() {
 
                 {/* Android Version */}
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Android Version</span>
-                  <span className="text-white">{device.androidVersion || 'N/A'}</span>
+                  <span className="text-slate-500">Android Version</span>
+                  <span className="text-slate-700">{device.androidVersion || 'N/A'}</span>
                 </div>
 
                 {/* Last Seen */}
                 <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1 text-slate-400">
+                  <div className="flex items-center gap-1 text-slate-500">
                     <Clock className="h-3 w-3" />
                     Last seen
                   </div>
-                  <span className="text-white">{device.lastSeen ? timeAgo(device.lastSeen) : 'Never'}</span>
+                  <span className="text-slate-700">{device.lastSeen ? timeAgo(device.lastSeen) : 'Never'}</span>
                 </div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-4 pt-4 border-t border-slate-200/50">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="w-full text-red-400 hover:text-red-300"
+                  className="w-full text-red-500 hover:text-red-600 hover:bg-red-50"
                   onClick={() => {
                     if (confirm('Remove this device?')) {
                       removeMutation.mutate(device._id);

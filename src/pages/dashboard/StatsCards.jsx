@@ -83,14 +83,14 @@ export default function StatsCards({ stats }) {
         const Icon = card.icon;
         return (
           <motion.div key={card.label} variants={item}>
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+            <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-5 hover:bg-white/70 transition-all duration-300 shadow-lg shadow-slate-200/40">
               <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${card.gradient}`}>
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${card.gradient} shadow-lg`}>
                   <Icon className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{card.value}</p>
-                  <p className="text-sm text-slate-400">{card.label}</p>
+                  <p className="text-2xl font-bold text-slate-800">{card.value}</p>
+                  <p className="text-sm text-slate-500">{card.label}</p>
                 </div>
               </div>
             </div>

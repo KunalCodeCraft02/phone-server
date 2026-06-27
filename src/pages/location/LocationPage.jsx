@@ -47,8 +47,8 @@ export default function LocationPage() {
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white">Location</h2>
-          <p className="text-slate-400 text-sm">Track device locations</p>
+          <h2 className="text-2xl font-bold text-slate-800">Location</h2>
+          <p className="text-slate-500 text-sm">Track device locations</p>
         </div>
         <Button onClick={handleShareLocation} loading={sendMutation.isPending}>
           <Navigation className="h-4 w-4" />
@@ -59,72 +59,72 @@ export default function LocationPage() {
       <LiveMap locations={locations} currentLocation={currentLocation} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Current Position</h3>
+        <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">Current Position</h3>
           {latestLoading ? (
             <div className="space-y-3 animate-pulse">
               {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-4 bg-white/10 rounded w-full" />
+                <div key={i} className="h-4 bg-slate-200 rounded w-full" />
               ))}
             </div>
           ) : currentLocation ? (
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="bg-slate-50 rounded-xl p-3">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
                     <Compass className="h-3 w-3" /> Latitude
                   </div>
-                  <p className="text-sm text-white font-mono">{currentLocation.latitude?.toFixed(6) || 'N/A'}</p>
+                  <p className="text-sm text-slate-800 font-mono">{currentLocation.latitude?.toFixed(6) || 'N/A'}</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="bg-slate-50 rounded-xl p-3">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
                     <Compass className="h-3 w-3" /> Longitude
                   </div>
-                  <p className="text-sm text-white font-mono">{currentLocation.longitude?.toFixed(6) || 'N/A'}</p>
+                  <p className="text-sm text-slate-800 font-mono">{currentLocation.longitude?.toFixed(6) || 'N/A'}</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="bg-slate-50 rounded-xl p-3">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
                     <Signal className="h-3 w-3" /> Accuracy
                   </div>
-                  <p className="text-sm text-white">{currentLocation.accuracy?.toFixed(1) || 'N/A'} m</p>
+                  <p className="text-sm text-slate-800">{currentLocation.accuracy?.toFixed(1) || 'N/A'} m</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="bg-slate-50 rounded-xl p-3">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
                     <Navigation className="h-3 w-3" /> Speed
                   </div>
-                  <p className="text-sm text-white">{currentLocation.speed?.toFixed(1) || '0'} m/s</p>
+                  <p className="text-sm text-slate-800">{currentLocation.speed?.toFixed(1) || '0'} m/s</p>
                 </div>
               </div>
               {currentLocation.battery !== undefined && (
-                <div className="bg-white/5 rounded-xl p-3">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="bg-slate-50 rounded-xl p-3">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs mb-1">
                     <Battery className="h-3 w-3" /> Battery
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"
                         style={{ width: `${currentLocation.battery}%` }}
                       />
                     </div>
-                    <span className="text-sm text-white">{currentLocation.battery}%</span>
+                    <span className="text-sm text-slate-800">{currentLocation.battery}%</span>
                   </div>
                 </div>
               )}
-              <div className="text-xs text-slate-500 flex items-center gap-1">
+              <div className="text-xs text-slate-400 flex items-center gap-1">
                 <Clock className="h-3 w-3" />
                 Last updated: {formatDateTime(currentLocation.timestamp || currentLocation.createdAt)}
               </div>
             </div>
           ) : (
-            <p className="text-sm text-slate-400">No location data available</p>
+            <p className="text-sm text-slate-500">No location data available</p>
           )}
         </div>
 
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Location History</h3>
+        <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40">
+          <h3 className="text-lg font-semibold text-slate-800 mb-4">Location History</h3>
           {locations.length === 0 ? (
-            <p className="text-sm text-slate-400">No location history</p>
+            <p className="text-sm text-slate-500">No location history</p>
           ) : (
             <div className="space-y-2 max-h-80 overflow-y-auto">
               {locations.map((loc, index) => (
@@ -133,16 +133,16 @@ export default function LocationPage() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.03 }}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-white/50 hover:bg-white/70 transition-colors border border-white/50"
                 >
-                  <div className="p-2 rounded-lg bg-blue-500/20">
-                    <MapPin className="h-4 w-4 text-blue-400" />
+                  <div className="p-2 rounded-lg bg-blue-50">
+                    <MapPin className="h-4 w-4 text-blue-500" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-white font-mono">
+                    <p className="text-xs text-slate-800 font-mono">
                       {loc.latitude?.toFixed(4)}, {loc.longitude?.toFixed(4)}
                     </p>
-                    <p className="text-xs text-slate-500">{formatDateTime(loc.timestamp || loc.createdAt)}</p>
+                    <p className="text-xs text-slate-400">{formatDateTime(loc.timestamp || loc.createdAt)}</p>
                   </div>
                 </motion.div>
               ))}

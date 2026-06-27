@@ -21,8 +21,8 @@ export default function Dashboard() {
       className="space-y-8"
     >
       <div>
-        <h2 className="text-2xl font-bold text-white mb-1">Overview</h2>
-        <p className="text-slate-400 text-sm">Your personal device cloud at a glance</p>
+        <h2 className="text-2xl font-bold text-slate-800 mb-1">Overview</h2>
+        <p className="text-slate-500 text-sm">Your personal device cloud at a glance</p>
       </div>
 
       {statsLoading ? (
@@ -36,19 +36,19 @@ export default function Dashboard() {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40">
           <div className="flex items-center gap-2 mb-4">
-            <Activity className="h-5 w-5 text-blue-400" />
-            <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
+            <Activity className="h-5 w-5 text-blue-500" />
+            <h3 className="text-lg font-semibold text-slate-800">Recent Activity</h3>
           </div>
           {activityLoading ? (
             <div className="space-y-3">
               {Array.from({ length: 5 }).map((_, i) => (
                 <div key={i} className="flex items-center gap-3 animate-pulse">
-                  <div className="h-8 w-8 bg-white/10 rounded-lg" />
+                  <div className="h-8 w-8 bg-slate-200 rounded-lg" />
                   <div className="flex-1 space-y-2">
-                    <div className="h-3 bg-white/10 rounded w-3/4" />
-                    <div className="h-2 bg-white/10 rounded w-1/2" />
+                    <div className="h-3 bg-slate-200 rounded w-3/4" />
+                    <div className="h-2 bg-slate-200 rounded w-1/2" />
                   </div>
                 </div>
               ))}
@@ -58,10 +58,10 @@ export default function Dashboard() {
           )}
         </div>
 
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+        <div className="bg-white/50 backdrop-blur-xl border border-white/50 rounded-2xl p-6 shadow-lg shadow-slate-200/40">
           <div className="flex items-center gap-2 mb-4">
-            <BarChart3 className="h-5 w-5 text-purple-400" />
-            <h3 className="text-lg font-semibold text-white">Quick Stats</h3>
+            <BarChart3 className="h-5 w-5 text-purple-500" />
+            <h3 className="text-lg font-semibold text-slate-800">Quick Stats</h3>
           </div>
           <div className="space-y-4">
             {[
@@ -72,10 +72,10 @@ export default function Dashboard() {
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm text-slate-300">{stat.label}</span>
-                  <span className="text-sm font-medium text-white">{stat.value}</span>
+                  <span className="text-sm text-slate-600">{stat.label}</span>
+                  <span className="text-sm font-medium text-slate-800">{stat.value}</span>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-slate-200/60 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min((stat.value / stat.max) * 100, 100)}%` }}
